@@ -9,9 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var presented: Bool = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button("tap") {
+            presented.toggle()
+        }
+        .sheet(isPresented: $presented, content: {
+            GridView()
+        })
+
     }
 }
 
